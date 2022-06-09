@@ -10,16 +10,18 @@ const web3 =  require("@solana/web3.js");
   // Uncomment the below command to test your connection to your node
   //console.log(await connection.getEpochInfo())
 
-  // Generate a new random public key
+  // Using the secretkey to generate the keypair
   const secretkey = Uint8Array.from()
-  const from = web3.Keypair.fromSecretKey(secretkey);
+  const from = web3.Keypair.fromSecretKey(secretkey);  
+  
+  //If you already have enough test sol in your account you can comment this out
   const airdropSignature = await connection.requestAirdrop(
     from.publicKey,
     web3.LAMPORTS_PER_SOL,
   );
   await connection.confirmTransaction(airdropSignature);
 
-  // Generate a new random public key
+
   
 
   // Add transfer instruction to transaction
